@@ -4,7 +4,7 @@
 
 datasetPath = 'datasets/syntheticDatasets/ten_100X100X10_5_50/';
 % fileName = 'ten_100X100X10_5_40_';
-resultPath = 'results/syntheticDatasets_again/ten_100X100X10_5_50/';
+resultPath = 'results/syntheticDatasets/ten_100X100X10_5_50/';
 
 alphas = [10^-4 10^-3 10^-2];
 betas = [10^-2 10^-1 10^0, 10];
@@ -20,7 +20,7 @@ gammas = [10^-4 10^-3 10^-2];
 
 datasets = dir(fullfile(datasetPath,'*.mat'));
 % numData = length(datasets);
-numData = 10;
+numData = 1;
 for data=1:numData
     % Generating FileNames and result paths 
     disp("Dataset");
@@ -235,48 +235,48 @@ for data=1:numData
         count = count + 1;
     end
     % Y1, Y2 and X_og analysis   
-%     [F1, Cor1] = getRnC(Y1, ceil(R/2));
-%     [facts1, fit1] = runCPNMU(Y1, F1);
-%     [rmse1, relFit1, rmses1, relFits1] = tensorCompletion(Y1, F1, tcMissing);
-%     analysis{count}.F1 = F1;
-%     analysis{count}.Cor1 = Cor1;
-%     analysis{count}.facts1 = facts1;
-%     analysis{count}.fit1 = fit1;
-%     analysis{count}.rmse1 = rmse1;
-%     analysis{count}.relFit1 = relFit1;
-%     analysis{count}.sizeY1 = size(Y1);
-%     analysis{count}.rmses1 = rmses1;
-%     analysis{count}.relFits1 = relFits1;
-%     
-%     count = count + 1;
-%     
-%     [F2, Cor2] = getRnC(Y2, ceil(R/2));
-%     [facts2, fit2] = runCPNMU(Y2, F2);
-%     [rmse2, relFit2, rmses2, relFits2] = tensorCompletion(Y2, F2, tcMissing);
-%     analysis{count}.F2 = F2;
-%     analysis{count}.Cor2 = Cor2;
-%     analysis{count}.facts2 = facts2;
-%     analysis{count}.fit2 = fit2;
-%     analysis{count}.rmse2 = rmse2;
-%     analysis{count}.relFit2 = relFit2;
-%     analysis{count}.sizeY2 = size(Y2);
-%     analysis{count}.rmses2 = rmses2;
-%     analysis{count}.relFits2 = relFits2;
-% 
-%     count = count + 1;
-%     
-%     [F_og, Cor_og] = getRnC(X_og, ceil(R/2));
-%     [facts_og, fit_og] = runCPNMU(X_og, F_og);
-%     [rmse_og, relFit_og, rmses_og, relFits_og] = tensorCompletion(X_og, F_og, tcMissing);
-%     analysis{count}.F_og = F_og;
-%     analysis{count}.Cor_og = Cor_og;
-%     analysis{count}.facts_og = facts_og;
-%     analysis{count}.fit_og = fit_og;
-%     analysis{count}.rmse_og = rmse_og;
-%     analysis{count}.relFit_og = relFit_og;
-%     analysis{count}.sizeXog = size(X_og);
-%     analysis{count}.rmses_og = rmses_og;
-%     analysis{count}.relFits_og = relFits_og;
+    [F1, Cor1] = getRnC(Y1, ceil(R/2));
+    [facts1, fit1] = runCPNMU(Y1, F1);
+    [rmse1, relFit1, rmses1, relFits1] = tensorCompletion(Y1, F1, tcMissing);
+    analysis{count}.F1 = F1;
+    analysis{count}.Cor1 = Cor1;
+    analysis{count}.facts1 = facts1;
+    analysis{count}.fit1 = fit1;
+    analysis{count}.rmse1 = rmse1;
+    analysis{count}.relFit1 = relFit1;
+    analysis{count}.sizeY1 = size(Y1);
+    analysis{count}.rmses1 = rmses1;
+    analysis{count}.relFits1 = relFits1;
+    
+    count = count + 1;
+    
+    [F2, Cor2] = getRnC(Y2, ceil(R/2));
+    [facts2, fit2] = runCPNMU(Y2, F2);
+    [rmse2, relFit2, rmses2, relFits2] = tensorCompletion(Y2, F2, tcMissing);
+    analysis{count}.F2 = F2;
+    analysis{count}.Cor2 = Cor2;
+    analysis{count}.facts2 = facts2;
+    analysis{count}.fit2 = fit2;
+    analysis{count}.rmse2 = rmse2;
+    analysis{count}.relFit2 = relFit2;
+    analysis{count}.sizeY2 = size(Y2);
+    analysis{count}.rmses2 = rmses2;
+    analysis{count}.relFits2 = relFits2;
+
+    count = count + 1;
+    
+    [F_og, Cor_og] = getRnC(X_og, ceil(R/2));
+    [facts_og, fit_og] = runCPNMU(X_og, F_og);
+    [rmse_og, relFit_og, rmses_og, relFits_og] = tensorCompletion(X_og, F_og, tcMissing);
+    analysis{count}.F_og = F_og;
+    analysis{count}.Cor_og = Cor_og;
+    analysis{count}.facts_og = facts_og;
+    analysis{count}.fit_og = fit_og;
+    analysis{count}.rmse_og = rmse_og;
+    analysis{count}.relFit_og = relFit_og;
+    analysis{count}.sizeXog = size(X_og);
+    analysis{count}.rmses_og = rmses_og;
+    analysis{count}.relFits_og = relFits_og;
     % Saving variables to the file
     
     savePath = strcat(resultPath, sName, '.mat');
